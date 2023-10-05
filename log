@@ -2,3 +2,14 @@ Thu 05 Oct 2023 06:22:38 PM UTC:
  tests:  0|5
 total_score: 0/70
 a1cfda7
+Thu 05 Oct 2023 06:34:46 PM UTC: 
+ sudoku.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:56:27: error: expected ‘)’ before numeric constant
+   56 |     for (i = 0; i < 9; i++0){
+      |         ~                 ^
+      |                           )
+Compilation failed
+2e9f738
