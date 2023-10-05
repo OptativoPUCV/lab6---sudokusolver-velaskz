@@ -44,8 +44,50 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+    int row, col, val;
 
-    return 1;
+    // Verificar filas y columnas
+    for (row = 0; row < 9; row++) {
+        for (col = 0; col < 9; col++) {
+            val = n->sudo[row][col];
+            if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+
+            // Verificar fila
+            for (int c = 0; c < 9; c++) {
+                if (c != col && n->sudo[row][c] == val) {
+                    return 0;  // Valor repetido en la misma fila
+                }
+            }
+
+            // Verificar columna
+            for (int r = 0; r < 9; r++) {
+                if (r != row && n->sudo[r][col] == val) {
+                    return 0;  // Valor repetido en la misma columna
+                }
+            }
+        }
+    }
+
+    // Verificar submatrices 3x3
+    for (int subrow = 0; subrow < 9; subrow += 3) {
+        for (int subcol = 0; subcol < 9; subcol += 3) {
+            int seen[10] = {0};
+
+            for (row = subrow; row < subrow + 3; row++) {
+                for (col = subcol; col < subcol + 3; col++) {
+                    val = n->sudo[row][col];
+                    if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+
+                    if (seen[val]) {
+                        return 0;  // Valor repetido en la misma submatriz
+                    }
+                    seen[val] = 1;
+                }
+            }
+        }
+    }
+
+    return 1;  // El nodo es válido
 }
 
 
