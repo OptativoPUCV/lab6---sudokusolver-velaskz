@@ -44,50 +44,48 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-    int fila, columna, val;
+    int fila, columna, valor;
 
-    // Verificar filas y columnas
-    for (fila = 0; fila < 9; fila++) {
+    for (fila = 0; fila < 9; fila++){
         for (columna = 0; columna < 9; columna++) {
-            val = n->sudo[fila][columna];
-            if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+            valor = n->sudo[fila][columna];
+            if (valor == 0) continue;  
 
-            // Verificar fila
-            for (int c = 0; c < 9; c++) {
-                if (c != columna && n->sudo[fila][c] == val) {
-                    return 0;  // Valor repetido en la misma fila
+            for (int c = 0; c < 9; c++){
+                if (c != columna && n->sudo[fila][c] == valor) {
+                    return 0; 
                 }
             }
 
-            // Verificar columna
-            for (int r = 0; r < 9; r++) {
-                if (r != fila && n->sudo[r][columna] == val) {
-                    return 0;  // Valor repetido en la misma columna
+            for (int r = 0; r < 9; r++){
+                if (r != fila && n->sudo[r][columna] == valor) {
+                    return 0;  
                 }
             }
         }
     }
 
-    // Verificar submatrices 3x3
-    for (int subfila = 0; subfila < 9; subfila += 3) {
-        for (int subcol = 0; subcol < 9; subcol += 3) {
+    for (int subfila = 0; subfila < 9; subfila += 3){
+        for (int subcol = 0; subcol < 9; subcol += 3){
             int seen[10] = {0};
 
-            for (fila = subfila; fila < subfila + 3; fila++) {
-                for (columna = subcol; columna < subcol + 3; columna++) {
-                    val = n->sudo[fila][columna];
-                    if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+            for (fila = subfila; fila < subfila + 3; fila++){
+                for (columna = subcol; columna < subcol + 3; columna++){
+                    valor = n->sudo[fila][columna];
+                    if (valor == 0){
+                        continue;
+                    }   
 
-                    if (seen[val]) {
-                        return 0;  // Valor repetido en la misma submatriz
+                    if (seen[valor]) {
+                        return 0;  
                     }
-                    seen[val] = 1;
+                    seen[valor] = 1;
                 }
             }
         }
     }
 
-    return 1;  // El nodo es válido
+    return 1; 
 }
 
 
