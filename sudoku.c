@@ -43,45 +43,44 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
-    int row, col, val;
+int isvalid(Node* n){
+    int i, j,k;
 
-    // Verificar filas y columnas
-    for (row = 0; row < 9; row++) {
-        for (col = 0; col < 9; col++) {
-            val = n->sudo[row][col];
-            if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+        k = n->sudo[i][j];
+            if k == 0) continue;  
 
             // Verificar fila
             for (int c = 0; c < 9; c++) {
-                if (c != col && n->sudo[row][c] == val) {
-                    return 0;  // Valor repetido en la misma fila
+                if (c != j && n->sudo[i][c] ==k) {
+                    return 0;  //kor repetido en la misma fila
                 }
             }
 
-            // Verificar columna
+            // Verificar jumna
             for (int r = 0; r < 9; r++) {
-                if (r != row && n->sudo[r][col] == val) {
-                    return 0;  // Valor repetido en la misma columna
+                if (r != i && n->sudo[r][j] ==k) {
+                    return 0;  //kor repetido en la misma jumna
                 }
             }
         }
     }
 
     // Verificar submatrices 3x3
-    for (int subrow = 0; subrow < 9; subrow += 3) {
-        for (int subcol = 0; subcol < 9; subcol += 3) {
+    for (int subi = 0; subi < 9; subi += 3) {
+        for (int subj = 0; subj < 9; subj += 3) {
             int seen[10] = {0};
 
-            for (row = subrow; row < subrow + 3; row++) {
-                for (col = subcol; col < subcol + 3; col++) {
-                    val = n->sudo[row][col];
-                    if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
+            for (i = subi; i < subi + 3; i++) {
+                for (j = subj; j < subj + 3; j++) {
+                k = n->sudo[i][j];
+                    if k == 0) continue;  //kor vacío, no necesitamos verificarlo
 
-                    if (seen[val]) {
-                        return 0;  // Valor repetido en la misma submatriz
+                    if (seenk]) {
+                        return 0;  //kor repetido en la misma submatriz
                     }
-                    seen[val] = 1;
+                    seenk] = 1;
                 }
             }
         }

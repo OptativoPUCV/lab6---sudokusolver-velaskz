@@ -25,3 +25,68 @@ Thu 05 Oct 2023 06:38:22 PM UTC:
  tests:  3|4
 total_score: 20/70
 df55059
+Thu 05 Oct 2023 06:40:12 PM UTC: 
+ sudoku.c | 41 ++++++++++++++++++++---------------------
+ 1 file changed, 20 insertions(+), 21 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘isvalid’:
+sudoku.c:52:16: error: expected ‘(’ before ‘k’
+   52 |             if k == 0) continue;
+      |                ^
+      |                (
+sudoku.c:52:16: error: statement with no effect [-Werror=unused-value]
+sudoku.c:52:13: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   52 |             if k == 0) continue;
+      |             ^~
+sudoku.c:52:22: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   52 |             if k == 0) continue;
+      |                      ^
+sudoku.c:52:22: error: expected statement before ‘)’ token
+sudoku.c:78:24: error: expected ‘(’ before ‘k’
+   78 |                     if k == 0) continue;  //kor vacío, no necesitamos verificarlo
+      |                        ^
+      |                        (
+sudoku.c:78:24: error: statement with no effect [-Werror=unused-value]
+sudoku.c:78:21: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   78 |                     if k == 0) continue;  //kor vacío, no necesitamos verificarlo
+      |                     ^~
+sudoku.c:78:30: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   78 |                     if k == 0) continue;  //kor vacío, no necesitamos verificarlo
+      |                              ^
+sudoku.c:78:30: error: expected statement before ‘)’ token
+sudoku.c:80:25: error: ‘seenk’ undeclared (first use in this function); did you mean ‘seen’?
+   80 |                     if (seenk]) {
+      |                         ^~~~~
+      |                         seen
+sudoku.c:80:25: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:80:30: error: expected ‘)’ before ‘]’ token
+   80 |                     if (seenk]) {
+      |                        ~     ^
+      |                              )
+sudoku.c:80:30: error: expected statement before ‘]’ token
+sudoku.c:80:21: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   80 |                     if (seenk]) {
+      |                     ^~
+sudoku.c:80:31: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   80 |                     if (seenk]) {
+      |                               ^
+sudoku.c:80:31: error: expected statement before ‘)’ token
+sudoku.c:83:26: error: expected ‘;’ before ‘]’ token
+   83 |                     seenk] = 1;
+      |                          ^
+      |                          ;
+sudoku.c:83:26: error: expected statement before ‘]’ token
+sudoku.c:83:28: error: expected expression before ‘=’ token
+   83 |                     seenk] = 1;
+      |                            ^
+sudoku.c:73:17: error: unused variable ‘seen’ [-Werror=unused-variable]
+   73 |             int seen[10] = {0};
+      |                 ^~~~
+test.c: In function ‘test_isvalid’:
+test.c:112:9: error: implicit declaration of function ‘is_valid’; did you mean ‘isvalid’? [-Werror=implicit-function-declaration]
+  112 |     if(!is_valid(initial)){
+      |         ^~~~~~~~
+      |         isvalid
+cc1: all warnings being treated as errors
+Compilation failed
+5c154be
