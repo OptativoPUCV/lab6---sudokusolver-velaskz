@@ -90,3 +90,9 @@ test.c:112:9: error: implicit declaration of function ‘is_valid’; did you me
 cc1: all warnings being treated as errors
 Compilation failed
 5c154be
+Thu 05 Oct 2023 06:44:50 PM UTC: 
+ sudoku.c | 41 +++++++++++++++++++++--------------------
+ 1 file changed, 21 insertions(+), 20 deletions(-)
+ tests:  3|4
+total_score: 20/70
+08e1733

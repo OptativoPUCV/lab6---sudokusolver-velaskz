@@ -43,44 +43,45 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int isvalid(Node* n){
-    int i, j,k;
+int is_valid(Node* n){
+    int fila, columna, val;
 
-    for (i = 0; i < 9; i++) {
-        for (j = 0; j < 9; j++) {
-        k = n->sudo[i][j];
-            if k == 0) continue;  
+    // Verificar filas y columnas
+    for (fila = 0; fila < 9; fila++) {
+        for (columna = 0; columna < 9; columna++) {
+            val = n->sudo[fila][columna];
+            if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
 
             // Verificar fila
             for (int c = 0; c < 9; c++) {
-                if (c != j && n->sudo[i][c] ==k) {
-                    return 0;  //kor repetido en la misma fila
+                if (c != columna && n->sudo[fila][c] == val) {
+                    return 0;  // Valor repetido en la misma fila
                 }
             }
 
-            // Verificar jumna
+            // Verificar columna
             for (int r = 0; r < 9; r++) {
-                if (r != i && n->sudo[r][j] ==k) {
-                    return 0;  //kor repetido en la misma jumna
+                if (r != fila && n->sudo[r][columna] == val) {
+                    return 0;  // Valor repetido en la misma columna
                 }
             }
         }
     }
 
     // Verificar submatrices 3x3
-    for (int subi = 0; subi < 9; subi += 3) {
-        for (int subj = 0; subj < 9; subj += 3) {
+    for (int subfila = 0; subfila < 9; subfila += 3) {
+        for (int subcol = 0; subcol < 9; subcol += 3) {
             int seen[10] = {0};
 
-            for (i = subi; i < subi + 3; i++) {
-                for (j = subj; j < subj + 3; j++) {
-                k = n->sudo[i][j];
-                    if k == 0) continue;  //kor vacío, no necesitamos verificarlo
+            for (fila = subfila; fila < subfila + 3; fila++) {
+                for (columna = subcol; columna < subcol + 3; columna++) {
+                    val = n->sudo[fila][columna];
+                    if (val == 0) continue;  // Valor vacío, no necesitamos verificarlo
 
-                    if (seenk]) {
-                        return 0;  //kor repetido en la misma submatriz
+                    if (seen[val]) {
+                        return 0;  // Valor repetido en la misma submatriz
                     }
-                    seenk] = 1;
+                    seen[val] = 1;
                 }
             }
         }
