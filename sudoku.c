@@ -67,7 +67,7 @@ int is_valid(Node* n){
 
     for (int subfila = 0; subfila < 9; subfila += 3){
         for (int subcol = 0; subcol < 9; subcol += 3){
-            int seen[10] = {0};
+            int seguimiento[10] = {0};
 
             for (fila = subfila; fila < subfila + 3; fila++){
                 for (columna = subcol; columna < subcol + 3; columna++){
@@ -76,10 +76,10 @@ int is_valid(Node* n){
                         continue;
                     }   
 
-                    if (seen[valor]) {
+                    if (seguimiento[valor]) {
                         return 0;  
                     }
-                    seen[valor] = 1;
+                    seguimiento[valor] = 1;
                 }
             }
         }
@@ -91,13 +91,13 @@ int is_valid(Node* n){
 
 List* get_adj_nodes(Node* n){
     List* list=createList();
-    size_t i,j,k;
+    size_t fila,columna,valor;
 
-    for (i = 0; i < 9; i++){
-        for(j = 0; j < 9; j++){
-            if (n->sudo[i][j] == 0){
-                for (k = 0; k < 9; k++){
-                    
+    for (fila = 0; fila < 9; fila++){
+        for(columna = 0; columna < 9; columna++){
+            if (n->sudo[fila][columna] == 0){
+                for (valor = 0; valor < 9; valor++){
+                    Node* nodo = copy(n);
                 }
             }
         }
