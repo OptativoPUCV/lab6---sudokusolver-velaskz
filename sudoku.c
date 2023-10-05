@@ -95,7 +95,7 @@ List* get_adj_nodes(Node* n){
     for (fila = 0; fila < 9; fila++){
         for(columna = 0; columna < 9; columna++){
             if (n->sudo[fila][columna] == 0){
-                for (valor = 0; valor < 9; valor++){
+                for (valor = 1; valor <= 9; valor++){
                     Node* nodo = copy(n);
                     nodo->sudo[fila][columna] = valor;
                     if (is_valid(nodo)){
