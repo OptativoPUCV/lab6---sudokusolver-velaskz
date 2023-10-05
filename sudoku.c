@@ -47,18 +47,18 @@ int is_valid(Node* n){
     int fila, columna, valor;
 
     for (fila = 0; fila < 9; fila++){
-        for (columna = 0; columna < 9; columna++) {
+        for (columna = 0; columna < 9; columna++){
             valor = n->sudo[fila][columna];
             if (valor == 0) continue;  
 
             for (int c = 0; c < 9; c++){
-                if (c != columna && n->sudo[fila][c] == valor) {
+                if (c != columna && n->sudo[fila][c] == valor){
                     return 0; 
                 }
             }
 
             for (int r = 0; r < 9; r++){
-                if (r != fila && n->sudo[r][columna] == valor) {
+                if (r != fila && n->sudo[r][columna] == valor){
                     return 0;  
                 }
             }
@@ -76,7 +76,7 @@ int is_valid(Node* n){
                         continue;
                     }   
 
-                    if (seguimiento[valor]) {
+                    if (seguimiento[valor]){
                         return 0;  
                     }
                     seguimiento[valor] = 1;
@@ -84,7 +84,6 @@ int is_valid(Node* n){
             }
         }
     }
-
     return 1; 
 }
 
@@ -98,6 +97,9 @@ List* get_adj_nodes(Node* n){
             if (n->sudo[fila][columna] == 0){
                 for (valor = 0; valor < 9; valor++){
                     Node* nodo = copy(n);
+                    if (is_valid(nodo)){
+                        
+                    }
                 }
             }
         }
