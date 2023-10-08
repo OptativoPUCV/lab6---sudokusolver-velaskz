@@ -129,6 +129,12 @@ int is_final(Node* n){
 
 
 Node* DFS(Node* initial, int* cont){
+    Stack* pila = createStack();
+    push(pila, initial);
+
+    if (is_empty(pila)){
+        Node* nodo = top(pila);
+    }
   return NULL;
 }
 
