@@ -143,6 +143,9 @@ Node* DFS(Node* initial, int* cont){
             return nodo;
         }
     }
+
+    List* nodosAdyacentes = get_adj_nodes(nodo);
+    Node* nodoAdyacente = front(nodosAdyacentes);
   return NULL;
 }
 
