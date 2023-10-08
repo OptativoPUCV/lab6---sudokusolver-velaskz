@@ -114,11 +114,12 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    for (size_t i=0;i<9;i++)
+    size_t fila, columna;
+    for (fila=0;fila<9;fila++)
     {
-        for (size_t j=0;j<9;j++)
+        for (columna=0;columna<9;columna++)
         {
-            if (n->sudo[i][j]==0)return 0;
+            if (n->sudo[fila][columna]==0)return 0;
         }
     }
     return 1;
