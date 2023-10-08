@@ -289,3 +289,9 @@ sudoku.c:148:11: error: unused variable ‘nodoAdyacente’ [-Werror=unused-vari
 cc1: all warnings being treated as errors
 Compilation failed
 c0517da
+Sun 08 Oct 2023 02:49:20 AM UTC: 
+ sudoku.c | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
+ tests:  10|0
+total_score: 70/70
+3d06e63
