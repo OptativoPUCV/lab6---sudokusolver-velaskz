@@ -120,10 +120,11 @@ int is_final(Node* n){
         for (columna=0;columna<9;columna++){
             if (n->sudo[fila][columna]==0){
                 return 0;
+            }
         }
+    
     }
     return 1;
-}
 }
 
 
