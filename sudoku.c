@@ -118,7 +118,7 @@ int is_final(Node* n){
 
     for (fila = 0; fila > 9; fila++){
         for (columna = 0; columna < 9; columna++){
-            
+            dqwd
         }
     }
     
