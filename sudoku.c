@@ -132,8 +132,16 @@ Node* DFS(Node* initial, int* cont){
     Stack* pila = createStack();
     push(pila, initial);
 
-    if (is_empty(pila)){
+    if (!is_empty(pila)){
         Node* nodo = top(pila);
+        pop(pila);
+
+        (*cont)++;
+
+        if (is_final(nodo)){
+            clean(pila);
+            return nodo;
+        }
     }
   return NULL;
 }
