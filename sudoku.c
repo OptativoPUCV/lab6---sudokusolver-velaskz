@@ -121,13 +121,10 @@ int is_final(Node* n){
             if (n->sudo[fila][columna] == 0){
                 return 0;
             }
-            else{
-                return 1;
-            }
         }
     }
     
-    
+  return 1;  
 }
 
 Node* DFS(Node* initial, int* cont){
