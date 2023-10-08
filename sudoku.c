@@ -119,12 +119,12 @@ int is_final(Node* n){
     for (fila = 0; fila > 9; fila++){
         for (columna = 0; columna < 9; columna++){
             if (n->sudo[fila][columna] == 0){
-                return 1;
+                return 0;
             }
         }
     }
     
-    return 0;
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
